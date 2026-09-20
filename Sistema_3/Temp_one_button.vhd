@@ -13,49 +13,45 @@ entity Temp_one_button is
 		  
 end entity;
 
-architecture zzz of temp_one_button is
+architecture zzz of Temp_one_button is
 
    signal cnt_min : integer range 0 to 9 := 0;
    signal cnt_dec   : integer range 0 to 5 := 0;
    signal cnt_uni   : integer range 0 to 9 := 0;
 
-   
-   signal running : std_logic := '0';
-	signal btn_cnt : integer range 0 to 3 := 0;
-
-    
 
 begin
     process(clk)
+	 
+        variable running  : std_logic := '0';
+        variable hold_cnt : integer range 0 to 3 := 0;
     begin
         if rising_edge(clk) then
             
-				if btn = '0' then 
+            if btn = '0' then 
                 
-                if btn_cnt < 3 then
-                    btn_cnt <= btn_cnt + 1; 
+                if hold_cnt < 3 then
+                    hold_cnt := hold_cnt + 1; 
                 end if;
+
                 
-                
-                if btn_cnt = 2 then
+                if hold_cnt = 2 then
                     cnt_min <= 0;
-                    cnt_dec   <= 0;
-                    cnt_uni   <= 0;
-                    running <= '0'; 
+                    cnt_dec <= 0;
+                    cnt_uni <= 0;
+                    running := '0'; 
                 end if;
-                
+
             else
                 
-                if btn_cnt > 0 and btn_cnt < 2 then
-                   
-                    running <= not running; 
+                if hold_cnt > 0 and hold_cnt < 2 then
+                    running := not running; 
                 end if;
                 
                 
-                btn_cnt <= 0; 
+                hold_cnt := 0; 
             end if;
 
-           
           
             if running = '1' and btn = '1' then
                 if cnt_uni = 9 then
@@ -80,7 +76,7 @@ begin
         end if;
     end process;
 
-    
+
     sec_min <= decode_ssd(cnt_min);
     sec_dec <= decode_ssd(cnt_dec);
     sec_uni <= decode_ssd(cnt_uni);
