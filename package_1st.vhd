@@ -37,6 +37,16 @@ package package_1st is
 				out_min,out_dec,out_uni: out std_logic_vector(6 downto 0));
 	end component;
 	
+	component Temp_one_button is
+    port ( clk   : in  std_logic; 
+			  btn   : in  std_logic; 
+			  
+			  sec_min : out std_logic_vector(6 downto 0);
+			  sec_dec : out std_logic_vector(6 downto 0);
+			  sec_uni : out std_logic_vector(6 downto 0));
+		  
+	end component;
+	
 	function decode_ssd(num : integer) return std_logic_vector;
 	
 end package_1st;
