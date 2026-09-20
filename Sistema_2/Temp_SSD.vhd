@@ -83,7 +83,7 @@ begin
     end process;
 
     
-    out_min     <= decode_ssd(cnt_min);
+    out_min <= decode_ssd(cnt_min);
     out_dec <= decode_ssd(cnt_dec);
     out_uni <= decode_ssd(cnt_uni);
 
