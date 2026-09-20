@@ -1,0 +1,1 @@
+Aparte del uso de IA ya expuesto en los "commit" de GitHub, se usó IA para definir la manera en que el sistema 1 podía mostrar la salida (el conteo) por medio de una estructura de flujo de datos (when… else…)
