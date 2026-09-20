@@ -15,12 +15,14 @@ architecture temp_xtra of Temporizador_extra is
 begin
 	process(clk_1s)
 	begin
-		if estado='0' then
-			count<=0;
-		else
-			if en_alarm='1' then
-				if count<99 then
-					count<= count + 1;
+		if rising_edge(clk_1s) then
+			if estado='0' then
+				count<=0;
+			else
+				if en_alarm='1' then
+					if count<99 then
+						count<= count + 1;
+					end if;
 				end if;
 			end if;
 		end if;
