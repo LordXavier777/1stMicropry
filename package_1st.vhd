@@ -37,4 +37,27 @@ package package_1st is
 				out_min,out_dec,out_uni: out std_logic_vector(6 downto 0));
 	end component;
 	
+	function decode_ssd(num : integer) return std_logic_vector;
+	
 end package_1st;
+
+package body package_1st is
+
+    function decode_ssd(num : integer) return std_logic_vector is
+    begin
+        case num is
+            when 0 => return "0000001"; 
+            when 1 => return "1001111"; 
+            when 2 => return "0010010"; 
+            when 3 => return "0000110"; 
+            when 4 => return "1001100"; 
+            when 5 => return "0100100"; 
+            when 6 => return "0100000"; 
+            when 7 => return "0001111"; 
+            when 8 => return "0000000"; 
+            when 9 => return "0000100"; 
+            when others => return "1111111"; 
+        end case;
+    end function;
+
+end package body package_1st;
