@@ -11,7 +11,7 @@ architecture try_out of tb_temp_one_button is
   
   component Temp_one_button is
     port( clk,btn: in std_logic;
-          sec_min,sec_dec,sec_uni: std_logic_vector(6 downto 0));
+          sec_min,sec_dec,sec_uni: out std_logic_vector(6 downto 0));
   end component;
   
   signal clk_tb: std_logic :='0';
