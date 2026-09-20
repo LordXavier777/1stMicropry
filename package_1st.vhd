@@ -30,5 +30,11 @@ package package_1st is
 		port(clk_50MHz : in  std_logic;
         reset     : in  std_logic;
         clk_1s    : out std_logic);
+	end component;
+	
+	component Temp_SSD is
+		port(	clk,start,stop,reset: in std_logic;
+				out_min,out_dec,out_uni: out std_logic_vector(6 downto 0));
+	end component;
 	
 end package_1st;

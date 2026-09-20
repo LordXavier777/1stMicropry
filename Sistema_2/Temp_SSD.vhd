@@ -9,7 +9,7 @@ entity Temp_SSD is
         reset : in  std_logic;
         
      
-        min     : out std_logic_vector(6 downto 0);
+        out_min     : out std_logic_vector(6 downto 0);
         out_dec : out std_logic_vector(6 downto 0);
         out_uni : out std_logic_vector(6 downto 0));
 		  
@@ -17,13 +17,11 @@ end entity;
 
 architecture Behavioral of Temp_SSD is
 
-    -
     signal cnt_min : integer range 0 to 9 := 0;
     signal cnt_dec   : integer range 0 to 5 := 0; 
-    signal cnt_uni   : integer range 0 to 9 := 0; -
+    signal cnt_uni   : integer range 0 to 9 := 0; 
 
-   
-    signal running : std_logic := '0';
+   signal running : std_logic := '0';
 
     
     function decode_ssd(num : integer) return std_logic_vector is
@@ -49,8 +47,8 @@ begin
        
         if reset = '0' then
             cnt_min <= 0;
-            cnt_d   <= 0;
-            cnt_u   <= 0;
+            cnt_dec   <= 0;
+            cnt_uni   <= 0;
             running <= '0';
             
         elsif rising_edge(clk) then
@@ -63,11 +61,11 @@ begin
 
            
             if running = '1' then
-                if cnt_u = 9 then
-                    cnt_u <= 0; 
+                if cnt_uni = 9 then
+                    cnt_uni <= 0; 
                     
-                    if cnt_d = 5 then
-                        cnt_d <= 0; 
+                    if cnt_dec = 5 then
+                        cnt_dec <= 0; 
                         
                         if cnt_min = 9 then
                             cnt_min <= 0; 
@@ -75,18 +73,18 @@ begin
                             cnt_min <= cnt_min + 1; 
                         end if;
                     else
-                        cnt_d <= cnt_d + 1; 
+                        cnt_dec <= cnt_dec + 1; 
                     end if;
                 else
-                    cnt_u <= cnt_u + 1; 
+                    cnt_uni <= cnt_uni + 1; 
                 end if;
             end if;
         end if;
     end process;
 
     
-    min     <= decode_ssd(cnt_min);
-    out_dec <= decode_ssd(cnt_d);
-    out_uni <= decode_ssd(cnt_u);
+    out_min     <= decode_ssd(cnt_min);
+    out_dec <= decode_ssd(cnt_dec);
+    out_uni <= decode_ssd(cnt_uni);
 
 end architecture;
