@@ -26,9 +26,4 @@ package package_1st is
 				clock_1s: out std_logic);
 	end component;
 	
-	component Divisor_1Hz is
-		port(clk_50MHz : in  std_logic;
-        reset     : in  std_logic;
-        clk_1s    : out std_logic);
-	
 end package_1st;
