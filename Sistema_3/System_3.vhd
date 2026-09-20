@@ -5,7 +5,7 @@ use work.package_1st.all;
 
 entity System_3 is
 	port( clk_general: in std_logic;
-			button: in std_logic;
+			start: in std_logic;
 			
 			disp_min: out std_logic_vector(6 downto 0);
 			disp_dec: out std_logic_vector(6 downto 0);
@@ -22,7 +22,7 @@ begin
 			clock_1s => clk_1Hz);
 	U2: Temp_one_button port map(
 			clk => clk_1Hz,
-			btn => button,
+			btn => start,
 			sec_min => disp_min,
 			sec_dec => disp_dec,
 			sec_uni => disp_uni);
