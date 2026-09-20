@@ -7,7 +7,7 @@ entity Temp_one_button is
     port ( clk   : in  std_logic; 
 			  btn   : in  std_logic; 
 			  
-			  min     : out std_logic_vector(6 downto 0);
+			  sec_min : out std_logic_vector(6 downto 0);
 			  sec_dec : out std_logic_vector(6 downto 0);
 			  sec_uni : out std_logic_vector(6 downto 0));
 		  
@@ -81,7 +81,7 @@ begin
     end process;
 
     
-    min     <= decode_ssd(cnt_min);
+    sec_min <= decode_ssd(cnt_min);
     sec_dec <= decode_ssd(cnt_dec);
     sec_uni <= decode_ssd(cnt_uni);
 
