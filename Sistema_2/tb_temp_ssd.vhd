@@ -63,7 +63,7 @@ begin
         start_tb <= '0';
         wait for 20 ns;
         start_tb <= '1';
-        wait for 400 ns;
+        wait for 430 ns;
 
         reset_tb <= '0';
         wait for 20 ns;
