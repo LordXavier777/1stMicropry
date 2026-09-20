@@ -9,8 +9,7 @@ architecture ssd_temp of tb_temp_ssd is
     component Temp_SSD is
         port(
             clk, start, reset, stop : in std_logic;
-            out_min, out_dec, out_uni : out std_logic_vector(6 downto 0)
-        );
+            out_min, out_dec, out_uni : out std_logic_vector(6 downto 0));
     end component;
 
     signal clk_tb       : std_logic := '0';
@@ -33,8 +32,7 @@ begin
         stop    => stop_tb,
         out_min => out_min_tb,
         out_dec => out_dec_tb,
-        out_uni => out_uni_tb
-    );
+        out_uni => out_uni_tb);
 
     clk_process: process
     begin
