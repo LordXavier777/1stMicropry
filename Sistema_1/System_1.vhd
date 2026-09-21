@@ -57,6 +57,7 @@ begin
 	
 	U4: BCD_7seg port map(V => bcd_dec, d => disp_dec);
 	U5: BCD_7seg port map(V => bcd_uni, d => disp_uni);
+	
 
 end architecture;
 

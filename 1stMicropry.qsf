@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY System_3
+set_global_assignment -name TOP_LEVEL_ENTITY System_1
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:40:56  SEPTEMBER 18, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -80,35 +80,19 @@ set_location_assignment PIN_F14 -to disp_min[0]
 set_location_assignment PIN_F1 -to start
 set_location_assignment PIN_G3 -to stop
 set_location_assignment PIN_H2 -to rst
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/Sistema_1/System_1.vhd"
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/BCD_7seg.vhd"
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/Divisor_1Hz_NR.vhd"
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/Divisor_1Hz.vhd"
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/package_1st.vhd"
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/Sistema_1/Temporizador35s.vhd"
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/Sistema_1/Temporizador_extra.vhd"
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/Sistema_1/Tb_Temp35s.vhd"
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/Sistema_1/Tb_temp_extra.vhd"
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/Sistema_2/Temp_SSD.vhd"
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/Sistema_2/System_2.vhd"
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/Sistema_3/Temp_one_button.vhd"
-set_global_assignment -name VHDL_FILE "../../4to semestre/Diseño VHDL/1stMicropry/Sistema_3/System_3.vhd"
-set_global_assignment -name VHDL_FILE Sistema_3/Temp_one_button.vhd
-set_global_assignment -name VHDL_FILE Sistema_3/tb_temp_one_button.vhd
-set_global_assignment -name VHDL_FILE Sistema_3/System_3.vhd
-set_global_assignment -name VHDL_FILE Sistema_2/Temp_SSD.vhd
-set_global_assignment -name VHDL_FILE Sistema_2/tb_temp_ssd.vhd
-set_global_assignment -name VHDL_FILE Sistema_2/System_2.vhd
 set_global_assignment -name VHDL_FILE Sistema_1/Temporizador35s.vhd
 set_global_assignment -name VHDL_FILE Sistema_1/Temporizador_extra.vhd
-set_global_assignment -name VHDL_FILE Sistema_1/Tb_Temp35s.vhd
-set_global_assignment -name VHDL_FILE Sistema_1/Tb_temp_extra.vhd
 set_global_assignment -name VHDL_FILE Sistema_1/System_1.vhd
+set_global_assignment -name VHDL_FILE Sistema_3/Temp_one_button.vhd
+set_global_assignment -name VHDL_FILE Sistema_3/System_3.vhd
 set_global_assignment -name VHDL_FILE package_1st.vhd
 set_global_assignment -name VHDL_FILE Divisor_1Hz_NR.vhd
 set_global_assignment -name VHDL_FILE Divisor_1Hz.vhd
 set_global_assignment -name VHDL_FILE BCD_7seg.vhd
+set_global_assignment -name VHDL_FILE Sistema_2/Temp_SSD.vhd
+set_global_assignment -name VHDL_FILE Sistema_2/System_2.vhd
+set_location_assignment PIN_A18 -to punto_DP
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

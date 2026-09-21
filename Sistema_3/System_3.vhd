@@ -9,8 +9,8 @@ entity System_3 is
 			
 			disp_min: out std_logic_vector(6 downto 0);
 			disp_dec: out std_logic_vector(6 downto 0);
-			disp_uni: out std_logic_vector(6 downto 0));
-
+			disp_uni: out std_logic_vector(6 downto 0);
+			punto_DP: out std_logic);
 end entity;
 
 architecture Epsilon of System_3 is
@@ -26,5 +26,7 @@ begin
 			sec_min => disp_min,
 			sec_dec => disp_dec,
 			sec_uni => disp_uni);
+			
+			punto_DP<='0';
 
 end architecture;

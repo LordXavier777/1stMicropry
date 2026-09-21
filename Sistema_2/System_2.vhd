@@ -12,7 +12,9 @@ entity System_2 is
 			
 			disp_min: out std_logic_vector(6 downto 0);
 			disp_dec: out std_logic_vector(6 downto 0);
-			disp_uni: out std_logic_vector(6 downto 0));
+			disp_uni: out std_logic_vector(6 downto 0);
+			
+			punto_DP: out std_logic);
 			
 end entity;
 
@@ -33,6 +35,8 @@ begin
 			out_min => disp_min,
 			out_dec => disp_dec,
 			out_uni => disp_uni);
+			
+			punto_DP<='0';
 
 end architecture;			
 	
