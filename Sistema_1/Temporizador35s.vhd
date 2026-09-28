@@ -12,7 +12,7 @@ entity Temporizador35s is
 	     tiempo_35: out integer range 0 to 35;
 		  led_good: out std_logic;
 		  led_alarm: out std_logic;
-		  led_prof: out std_logic);
+		  led_prof: out std_logic); -- led que titila cada segundo siempre que el temp de 35 segundos esté activo
 end entity;
 
 architecture archtemp of Temporizador35s is
@@ -46,7 +46,7 @@ begin
 	
 tiempo_35<=count;
 
-led_prof<=clk_1s when (count>0 and count<35) else '0';
+led_prof<=clk_1s when (count>0 and count<35) else '0'; -- asignacion de la señal de reloj al led de salida para que titile siempre y cuando esté activo el temporizador de 34 segundos
 
 
 end architecture;
