@@ -19,15 +19,16 @@ entity System_2 is
 end entity;
 
 architecture Gamma of System_2 is
-	signal clock_1Hz: std_logic;
+	signal clock_1Hz: std_logic; --creacion de la señal que conecta la salida del divisor de frecuencia a la entrada del contador
 	
 begin
-	U1: Divisor_1Hz port map(
+	U1: Divisor_1Hz port map( --Instancia del divisor de frecuencia
 		clk_50MHz => clk_general,
 		reset => rst,
 		clk_1s => clock_1Hz);
 		
-	U2: Temp_SSD port map(
+	U2: Temp_SSD port map(  --Instancia del contador que contiene la logica general de conteo para la entidad
+									-- la información ya empaquetada va hacia los pines de salida de la FPGA mediante la entidad general
 			clk => clock_1Hz,
 			start => start,
 			stop => stop,
@@ -36,7 +37,7 @@ begin
 			out_dec => disp_dec,
 			out_uni => disp_uni);
 			
-			punto_DP<='0';
+			punto_DP<='0'; --asignacion del punto para el display
 
 end architecture;			
 	

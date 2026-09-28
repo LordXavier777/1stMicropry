@@ -8,7 +8,8 @@ package package_1st is
 				estado: in std_logic;
 				led_good: out std_logic;
 				led_alarm: out std_logic;
-				tiempo_35: out integer range 0 to 35);
+				tiempo_35: out integer range 0 to 35;
+				led_prof: out std_logic);
 	end component;
 	
 	component Temporizador_extra is

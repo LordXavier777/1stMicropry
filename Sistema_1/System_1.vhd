@@ -12,7 +12,8 @@ entity System_1 is
 			led_alert: out std_logic;
 			led_GJ: out std_logic;
 			disp_uni: out std_logic_vector(6 downto 0);
-			disp_dec: out std_logic_vector(6 downto 0));
+			disp_dec: out std_logic_vector(6 downto 0);
+			led_show: out std_logic);
 			
 end entity;
 
@@ -29,33 +30,34 @@ architecture Ryze of System_1 is
 	signal t_final: integer range 0 to 99;
 	
 begin
-	U1: Divisor_1Hz_NR port map(
+	U1: Divisor_1Hz_NR port map(  --Instancia del divisor de frecuencia / base tiempo para 1Hz
 			clk_50MHz => clk_general,
 			clock_1s  => clk_1Hz);
 
     
-    U2: Temporizador35s port map (
+    U2: Temporizador35s port map ( --Instancia del temporizador principal (35 segundos)
         clk_1s     => clk_1Hz,
         estado     => estado,
         tiempo_35  => t_35,
         led_alarm  => alerta,
-        led_good   => led_GJ);
+        led_good   => led_GJ,
+		  led_prof => led_show);
 
   
-    U3: Temporizador_extra port map (
+    U3: Temporizador_extra port map ( --instancia del contador secundario, el conteo solo inicia si la señal de alarma "en_alarm" se activa
         clk_1s       => clk_1Hz,
         estado       => estado,
         en_alarm     => alerta, 
         t_extra      => tiempo_extra);
 		  
-	t_final<= tiempo_extra when alerta='1' else t_35;
+	t_final<= tiempo_extra when alerta='1' else t_35; -- selecciona el conteo que se va a mostrar en los display
 
-	bcd_dec<= conv_std_logic_vector(t_final/10,4);
+	bcd_dec<= conv_std_logic_vector(t_final/10,4); -- convierte los enteros a std_logic_vector de 4 bits para el BCD a 7 segmentos
 	bcd_uni<= conv_std_logic_vector(t_final mod 10,4);
 
 	led_alert<=alerta;
 	
-	U4: BCD_7seg port map(V => bcd_dec, d => disp_dec);
+	U4: BCD_7seg port map(V => bcd_dec, d => disp_dec); -- Instancias de los BCD a 7 segmentos
 	U5: BCD_7seg port map(V => bcd_uni, d => disp_uni);
 	
 

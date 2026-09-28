@@ -20,7 +20,7 @@ end entity;
 
 architecture Comportamental of Temp_SSD is
 
-    signal cnt_min : integer range 0 to 9 := 0;
+    signal cnt_min : integer range 0 to 9 := 0; -- se definen las señales que van a llevar el registro del conteo
     signal cnt_dec   : integer range 0 to 5 := 0; 
     signal cnt_uni   : integer range 0 to 9 := 0; 
 
@@ -51,28 +51,28 @@ begin
             -- en este mismo pulso de reloj, eliminando el retraso[cite: 9].
             if v_running = '1' then
                 if cnt_uni = 9 then
-                    cnt_uni <= 0;
+                    cnt_uni <= 0; -- reinicia unidades al llegar a 9
                     
-                    if cnt_dec = 5 then
+                    if cnt_dec = 5 then -- reinicia decenas al llegar a 59
                         cnt_dec <= 0;
                         
-                        if cnt_min = 9 then
+                        if cnt_min = 9 then --tope para los minutos
                             cnt_min <= 0;
                         else
-                            cnt_min <= cnt_min + 1;
+                            cnt_min <= cnt_min + 1; -- incrementa los minutos
                         end if;
                     else
-                        cnt_dec <= cnt_dec + 1;
+                        cnt_dec <= cnt_dec + 1; --incrementa las decenas
                     end if;
                 else
-                    cnt_uni <= cnt_uni + 1;
+                    cnt_uni <= cnt_uni + 1; -- incrementa las unidades
                 end if;
             end if;
         end if;
     end process;
 
     
-    out_min <= decode_ssd(cnt_min);
+    out_min <= decode_ssd(cnt_min); -- toma el conteo de unidades, decenas y minutos (enteros) y los convierte en std_logic_vector de 7 bits mediante la funcion
     out_dec <= decode_ssd(cnt_dec);
     out_uni <= decode_ssd(cnt_uni);
 
